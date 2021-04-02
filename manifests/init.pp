@@ -16,9 +16,9 @@ class fact_test {
     'dotexe.json',
     'dotexe.yaml',
 
-  ].each |String $value| {
-    notify { "fact ${value}":
-      message => "${facts[$value]}"
+  ].each |String $name| {
+    notify { "fact ${name}":
+      message => "${facts[$name]}"
     }
   }
 }
