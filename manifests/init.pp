@@ -17,8 +17,11 @@ class fact_test {
     'dotexe.yaml',
 
   ].each |String $name| {
+    $path = $name.split('[.]') # escaped literal dot
+    $value = $facts.dig(*($path))
+
     notify { "fact ${name}":
-      message => "${facts[$name]}"
+      message => "$value"
     }
   }
 }
